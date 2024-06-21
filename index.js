@@ -39,18 +39,15 @@ function loadAndPlayVideo() {
 }
 
 function onPlayerReady(event) {
-  captionDiv = document.createElement("div");
+  // Create captionDiv and assign the class
+  const captionDiv = document.createElement("div");
   captionDiv.id = "captionDiv";
-  captionDiv.style.position = "absolute";
-  captionDiv.style.bottom = "50px";
-  captionDiv.style.left = "50%";
-  captionDiv.style.transform = "translateX(-50%)";
-  captionDiv.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
-  captionDiv.style.color = "white";
-  captionDiv.style.padding = "10px";
-  captionDiv.style.borderRadius = "5px";
-  captionDiv.style.display = "none";
+  captionDiv.classList.add("caption"); // Add 'caption' class
+
+  // Append to videoContainer
   document.getElementById("videoContainer").appendChild(captionDiv);
+
+  // Other logic
   event.target.playVideo();
   setInterval(syncCaptions, 500);
 }
