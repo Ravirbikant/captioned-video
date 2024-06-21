@@ -39,15 +39,12 @@ function loadAndPlayVideo() {
 }
 
 function onPlayerReady(event) {
-  // Create captionDiv and assign the class
   const captionDiv = document.createElement("div");
   captionDiv.id = "captionDiv";
-  captionDiv.classList.add("caption"); // Add 'caption' class
+  captionDiv.classList.add("caption");
 
-  // Append to videoContainer
   document.getElementById("videoContainer").appendChild(captionDiv);
 
-  // Other logic
   event.target.playVideo();
   setInterval(syncCaptions, 500);
 }

@@ -9,6 +9,10 @@
   <body>
     <div class="container">
       <h1>Captioned Video Player</h1>
+      <div id="videoContainer">
+        <div id="player"></div>
+      </div>
+      <div id="captions"></div>
       <input type="text" id="videoUrl" placeholder="Enter YouTube Video URL" />
       <textarea
         id="captionText"
@@ -17,15 +21,11 @@
       <input
         type="text"
         id="timestamp"
-        placeholder="Enter timestamp (e.g., 00:00:10)"
+        placeholder="Enter timestamp in seconds"
       />
       <button onclick="loadAndPlayVideo()">
         Load and Play Video with Captions
       </button>
-      <div id="videoContainer">
-        <div id="player"></div>
-      </div>
-      <div id="captions"></div>
     </div>
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="index.js"></script>
