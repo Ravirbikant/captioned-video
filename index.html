@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Captioned Video Player</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Captioned Video Player</h1>
+      <input type="text" id="videoUrl" placeholder="Enter YouTube Video URL" />
+      <button onclick="loadVideo()">Load Video</button>
+      <div id="videoContainer">
+        <div id="player"></div>
+      </div>
+      <div id="captionContainer">
+        <textarea
+          id="captionText"
+          placeholder="Enter your captions here..."
+        ></textarea>
+        <input
+          type="text"
+          id="timestamp"
+          placeholder="Enter timestamp (e.g., 00:00:10)"
+        />
+        <button onclick="addCaption()">Add Caption</button>
+      </div>
+      <div id="captions"></div>
+    </div>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
