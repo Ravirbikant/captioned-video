@@ -19,13 +19,14 @@
         id="timestamp"
         placeholder="Enter timestamp (e.g., 00:00:10)"
       />
+      <button onclick="addCaption()">Add Caption</button>
       <button onclick="loadAndPlayVideo()">
         Load and Play Video with Captions
       </button>
       <div id="videoContainer">
         <div id="player"></div>
       </div>
-      <div id="captions"></div>
+      <div id="captions-list"></div>
     </div>
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="index.js"></script>
