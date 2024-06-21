@@ -10,21 +10,20 @@
     <div class="container">
       <h1>Captioned Video Player</h1>
       <input type="text" id="videoUrl" placeholder="Enter YouTube Video URL" />
-      <button onclick="loadVideo()">Load Video</button>
+      <textarea
+        id="captionText"
+        placeholder="Enter your captions here..."
+      ></textarea>
+      <input
+        type="text"
+        id="timestamp"
+        placeholder="Enter timestamp (e.g., 00:00:10)"
+      />
+      <button onclick="loadAndPlayVideo()">
+        Load and Play Video with Captions
+      </button>
       <div id="videoContainer">
         <div id="player"></div>
-      </div>
-      <div id="captionContainer">
-        <textarea
-          id="captionText"
-          placeholder="Enter your captions here..."
-        ></textarea>
-        <input
-          type="text"
-          id="timestamp"
-          placeholder="Enter timestamp (e.g., 00:00:10)"
-        />
-        <button onclick="addCaption()">Add Caption</button>
       </div>
       <div id="captions"></div>
     </div>

@@ -2,8 +2,21 @@ let player;
 let captions = [];
 let captionDiv;
 
-function loadVideo() {
+function loadAndPlayVideo() {
   const url = document.getElementById("videoUrl").value;
+  const captionText = document.getElementById("captionText").value;
+  const timestamp = document.getElementById("timestamp").value;
+
+  if (!url) {
+    alert("Please enter a YouTube URL");
+    return;
+  }
+
+  if (!captionText || !timestamp) {
+    alert("Please enter both caption text and timestamp");
+    return;
+  }
+
   const videoId = extractVideoId(url);
   if (videoId) {
     if (player) {
@@ -19,13 +32,13 @@ function loadVideo() {
         },
       });
     }
+    addCaption(captionText, timestamp);
   } else {
     alert("Invalid YouTube URL");
   }
 }
 
 function onPlayerReady(event) {
-  event.target.playVideo();
   captionDiv = document.createElement("div");
   captionDiv.id = "captionDiv";
   captionDiv.style.position = "absolute";
@@ -38,6 +51,7 @@ function onPlayerReady(event) {
   captionDiv.style.borderRadius = "5px";
   captionDiv.style.display = "none";
   document.getElementById("videoContainer").appendChild(captionDiv);
+  event.target.playVideo();
   setInterval(syncCaptions, 500);
 }
 
@@ -54,14 +68,10 @@ function extractVideoId(url) {
   return matches ? matches[1] || matches[2] : null;
 }
 
-function addCaption() {
-  const text = document.getElementById("captionText").value;
-  const timestamp = document.getElementById("timestamp").value;
+function addCaption(text, timestamp) {
   if (text && timestamp) {
     captions.push({ text, timestamp });
     displayCaptions();
-  } else {
-    alert("Please enter both caption text and timestamp");
   }
 }
 
